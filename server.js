@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 1992;
 
 // enable server to accept requests
-
+// middleware vvv
 app.use(express.json()); // json objs from the user
 app.use(express.urlencoded({ extended: true })); //arrays and strings from the user
 
@@ -21,7 +21,6 @@ app.use(express.urlencoded({ extended: true })); //arrays and strings from the u
 app.use(express.static("public"));
 
 // populate new notes in to new object that will be saved and displayed to html
-//const notes = {};
 
 // get route to first page
 app.get("/", (req, res) =>
@@ -33,7 +32,7 @@ app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/notes.html"))
 );
 
-// util.promisify = forces a functiomn that normally does not return promise to return a promise
+// util.promisify = forces a function that normally does not return promise to return a promise
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 

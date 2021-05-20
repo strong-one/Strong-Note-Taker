@@ -4,7 +4,7 @@
 
 ## Description
 
-Note taking made easy and convinient, this app takes in user input in the form of a title, and any associated notes below. The user is able to add and delete notes.
+Note taking made easy and convinient, this app takes in user input in the form of a title, and any associated notes below. With the help of my tutor , the user is able to add and delete notes.
 
 ## Usage
 
@@ -18,6 +18,7 @@ This app uses server.js to tie together the back and front end. the user is able
 
 Express.js
 UUID npm
+Supplied class starter code
 
 ![Note taker Screenshot 1](Assets/11-express-homework-demo-01.png)
 ![Note taker Screenshot 2](Assets/11-express-homework-demo-02.png)
