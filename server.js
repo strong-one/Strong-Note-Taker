@@ -44,6 +44,7 @@ const getNotes = () => {
   });
 };
 
+// get notes from the api
 app.get("/api/notes", (req, res) => {
   getNotes().then((notes) => {
     res.json(notes);
@@ -52,14 +53,19 @@ app.get("/api/notes", (req, res) => {
 
 // create notes
 app.post("/api/notes", (req, res) => {
+  // post new notes in body of html
   const newNote = req.body;
 
-  newNote.id = uuidv4(); // create a key that will generate a unique id
+  newNote.id = uuidv4(); // create a key that will generate a unique id to new note
 
   getNotes().then((notes) => {
+    // storing notes in to a var called allNotes
     const allNotes = notes;
+    // notes(allNotes) push into a newNote which will request to push into body of html
     allNotes.push(newNote);
+    // returning what was pulled from the db.json file, returning the json as a string from allNotes
     return writeFileAsync("db/db.json", JSON.stringify(allNotes)).then(() => {
+      // then the response is a new note of user input in the body of the html
       res.json(newNote);
     });
   });
@@ -67,6 +73,7 @@ app.post("/api/notes", (req, res) => {
 
 // delete notes
 app.delete("/api/notes/:id", (req, res) => {
+  // which request am I looking for? paramater of ID
   const id = req.params.id;
 
   getNotes().then((notes) => {
